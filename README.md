@@ -21,13 +21,41 @@ vehpbkrby Platform repository
  - Создан DockerFile
   
 
+ Причины автоматического запуска пода core-dns наличие параметров livenes probe пода в деплойменте:
+ В деплойменте COREDNS присутствует Livenes Probe
+        livenessProbe:
+
+          failureThreshold: 5
+
+          httpGet:
+
+            path: /health
+
+            port: 8080
+
+            scheme: HTTP
+
+          initialDelaySeconds: 60
+
+          periodSeconds: 10
+
+          successThreshold: 1
+
+          timeoutSeconds: 5
+		  
+управление остальными подами выполняется на основе  конфигурации кубелет kubelet conf
  
+
+
+Задание со звездочкой: 
+Причина не запуска является отстутсвие в манифесте заданных параметров сред окружения(ENV). 
+
 
 ## Как запустить проект:
 
  - Создать образ из докерфайла, запустить.
  ИЛИ
- - Применить манифест kubectl apply -f web-pod.yaml
+ - Применить манифест kubectl apply -f 
 
 
 
