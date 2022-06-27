@@ -55,7 +55,7 @@ vehpbkrby Platform repository
 
  - Создать образ из докерфайла, запустить.
  ИЛИ
- - Применить манифест kubectl apply -f 
+ - Применить манифест kubectl apply -f web-pod.yml
 
 
 
