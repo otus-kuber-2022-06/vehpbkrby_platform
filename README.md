@@ -78,3 +78,26 @@ vehpbkrby Platform repository
 
 Реализованы 2 сценария развертывания
 Реализован Daemonset с возможностью запуска подов на мастерноде
+
+
+
+
+Домашнее задание 3
+
+
+task01
+Созданы Service Account bob , дана роль admin в рамках всего кластера
+Создана  Service Account dave без доступа к кластеру
+
+task02
+Создан Namespace prometheus
+Создан Service Account carol в этом Namespac
+Service Account в Namespace prometheus которые могут get , list , watch в отношении Pods всего кластера
+
+task03
+Создан Namespace dev
+Создан Service Account jane в Namespace dev
+Дана jane роль admin в рамках Namespace dev
+Создан Service Account ken в Namespace dev
+Дана ken роль view в рамках Namespace dev
+
