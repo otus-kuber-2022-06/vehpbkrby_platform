@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/app-root: /homs
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: # your civo dns name
+    http:
+      paths:
+      - path: /home
+        pathType: Exact
+        backend:
+          service:
+            name: webapp-v1
+            port:
+              number: 80
+      - path: /version
+        pathType: Exact
+        backend:
+          service:
+            name: webapp-v1
+            port:
+              number: 80
