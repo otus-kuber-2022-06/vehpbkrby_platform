@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt"
+    kubernetes.io/ingress.class: nginx
+#    kubernetes.io/tls-acme: "true"
+#    cert-manager.io/cluster-issuer: "letsencrypt"
+    cert-manager.io/acme-challenge-type: http01
+
+spec:
+  rules:
+  - host: shop.51.250.80.42.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: {{ .Values.service.targetPort }}
+

@@ -113,3 +113,48 @@ task03
 В манифесте стейтефулсета были заменены имя пользователя и пароль на секреты. 
 Создан манифест секрета. 
 
+
+
+ДЗ HELM
+
+Выполнено ДЗ в яндекс клауде. 
+Выполнены часть дз со *. 
+Не смог выполнить Kustomize
+
+Решены задачи с чартмузеумом, харбором, ингесс, кубсфг
+
+1. Nginix-Ingress
+
+
+$ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "ingress-nginx" chart repository
+...Successfully got an update from the "coreos" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+
+
+$ helm install quickstart ingress-nginx/ingress-nginx
+
+NAME: quickstart
+... lots of output ...
+
+
+$ kubectl apply -f issuer.yaml -n cert-manager 
+
+https://chartmuseum.51.250.80.42.nip.io/
+
+Применение:
+helm push 
+helm repo update
+
+
+
+
+
+
+
+
