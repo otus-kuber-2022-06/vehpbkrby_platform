@@ -1,0 +1,14 @@
+
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: svctarget
+spec:
+  selector:
+    matchLabels:
+      app: svc
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  endpoints:
+  - port: metrics
