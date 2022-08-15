@@ -1,18 +1,15 @@
-
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: svctarget
-  namespace: default
+  name: frontend
+  labels:
+    app: frontend
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: frontend
   namespaceSelector:
     matchNames:
-    - default
+    - {{ .Release.Namespace }}
   endpoints:
-#  - port: metrics
-#    path: /basic_status
-  - path: /metrics
-    port: metrics
+  - port: http
