@@ -1,0 +1,17 @@
+helm:
+  versions: v3
+git:
+  pollInterval: 2m
+  ssh:
+    secretName: flux-git-deploy
+
+chartsSyncInterval: 2m
+
+logReleaseDiffs:
+  true
+
+configureRepositories:
+  enable: true
+  repositories:
+    - name: stable
+      url: https://kubernetes-charts.storage.googleapis.com
