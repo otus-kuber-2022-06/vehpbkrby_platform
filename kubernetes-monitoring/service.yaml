@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: svc
   labels:
-    app: svc
+    app: nginx
 spec:
   selector:
     app: nginx
-  type: NodePort
+  type: ClusterIP
   ports:
     - name: web
       protocol: TCP
@@ -17,3 +17,7 @@ spec:
       protocol: TCP
       port: 9113
       targetPort: metrics
+    - name: http-status
+      port: 8080
+      protocol: TCP
+      targetPort: 8080

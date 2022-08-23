@@ -1,0 +1,8 @@
+git:
+  url: git@gitlab.com:vehpbkrby/microservices-demo.git
+  path: deploy
+  ciSkip: true
+  branch: main
+  pollInterval: 2m
+registry:
+  automationInterval: 2m
