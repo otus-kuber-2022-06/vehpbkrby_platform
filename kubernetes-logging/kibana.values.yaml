@@ -1,0 +1,13 @@
+tolerations:
+  - key: node-role
+    operator: Equal
+    value: infra
+    effect: NoSchedule
+nodeSelector:
+  beta.kubernetes.io/instance-type: standard-v1
+ingress:
+  enabled: true
+  path: /
+  hosts:
+    - kibana.158.160.5.116.xip.io
+

@@ -1,0 +1,47 @@
+prometheusOperator:
+  tolerations:
+    - key: node-role
+      operator: Equal
+      value: infra
+      effect: NoSchedule
+
+  nodeSelector:
+    beta.kubernetes.io/instance-type: standard-v1
+
+grafana:
+  tolerations:
+    - key: node-role
+      operator: Equal
+      value: infra
+      effect: NoSchedule
+
+  nodeSelector:
+    beta.kubernetes.io/instance-type: standard-v1
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.158.160.5.116.xip.io
+  adminPassword: admin
+  additionalDataSources:
+    - name: Loki
+      access: proxy
+      type: loki
+      url: http://loki:3100
+
+prometheus:
+  tolerations:
+    - key: node-role
+      operator: Equal
+      value: infra
+      effect: NoSchedule
+
+  nodeSelector:
+    beta.kubernetes.io/instance-type: standard-v1
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.158.160.5.116.xip.io
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    serviceMonitorNamespaceSelector: {}
